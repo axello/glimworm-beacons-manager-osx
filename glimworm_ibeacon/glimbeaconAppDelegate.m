@@ -655,19 +655,20 @@ bool isWorking = FALSE;
 //        [self.deviceTextField setStringValue:@"..."];
 //        [self.orientationTextField setStringValue:@""];
     }
+    // fixed crashing bug: This is optional but must be an empty string (@"") not nil.
     else if (central.state == CBCentralManagerStatePoweredOff) {
         [statusbox setStringValue:@"state update powered off"];
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Bluetooth is currently powered off." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:nil];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Bluetooth is currently powered off." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
         [alert runModal];
     }
     else if (central.state == CBCentralManagerStateUnauthorized) {
         [statusbox setStringValue:@"state update powered unauthorized"];
-        NSAlert *alert = [NSAlert alertWithMessageText:@"The app is not authorized to use Bluetooth Low Energy." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:nil];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"The app is not authorized to use Bluetooth Low Energy." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
         [alert runModal];
     }
     else if (central.state == CBCentralManagerStateUnsupported) {
         [statusbox setStringValue:@"state update powered unsupported"];
-        NSAlert *alert = [NSAlert alertWithMessageText:@"The platform/hardware doesn't support Bluetooth Low Energy." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:nil];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"The platform/hardware doesn't support Bluetooth Low Energy." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
         [alert runModal];
     }
     
