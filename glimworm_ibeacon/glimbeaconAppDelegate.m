@@ -701,12 +701,12 @@ bool isScanning = FALSE;
         [scanningbar_spinner stopAnimation:self];
     }
 }
-- (IBAction)buttonbot:(id)sender {
-    [self startWithScanning];
-}
-- (IBAction)buttonstop:(id)sender {
-    [self stopWithScanning];
-}
+//- (IBAction)buttonbot:(id)sender {
+//    [self startWithScanning];
+//}
+//- (IBAction)buttonstop:(id)sender {
+//    [self stopWithScanning];
+//}
 
 - (IBAction)tb_scan_for_beacons:(id)sender {
     if (isScanning == FALSE) {
