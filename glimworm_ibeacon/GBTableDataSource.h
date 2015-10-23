@@ -12,7 +12,12 @@
 
 @property  (nonatomic, strong) IBOutlet NSMutableArray *itemArray;
 @property  (nonatomic, strong) IBOutlet NSMutableArray *accountBeacons;
+@property  (nonatomic, strong) IBOutlet NSMutableArray *accountArray;
 
 -(void)clearBeaconArray;
+-(void) clearAccountArray;
+-(void) clearAccountBeacons;
+
+-(void) setupAccountArray;
 
 @end

@@ -19,7 +19,7 @@
 @synthesize manager;
 @synthesize cvitems;
 // @synthesize ItemArray;
-@synthesize AccountArray;
+//@synthesize AccountArray;
 @synthesize panel;
 @synthesize p_name;
 @synthesize p_name_ml;
@@ -30,7 +30,7 @@
 @synthesize p_maj;
 @synthesize p_min;
 @synthesize settingspanel;
-@synthesize AccountBeacons;
+//@synthesize AccountBeacons;
 @synthesize workingpanel;
 @synthesize writingpanel;
 @synthesize selectpanel;
@@ -567,42 +567,42 @@ bool isWorking = FALSE;
 #pragma mark - Updating the BEACON array
 /* account array */
 
--(void)insertObject:(AccountModel *)p inAccountArrayAtIndex:(NSUInteger)index {
-    [AccountArray insertObject:p atIndex:index];
-}
+//-(void)insertObject:(AccountModel *)p inAccountArrayAtIndex:(NSUInteger)index {
+//    [AccountArray insertObject:p atIndex:index];
+//}
 
--(void)removeObjectFromAccountArrayAtIndex:(NSUInteger)index {
-    [AccountArray removeObjectAtIndex:index];
-}
-
--(void)setAccountArray:(NSMutableArray *)a {
-    AccountArray = a;
-}
-
--(NSArray*)accountArray {
-    return AccountArray;
-}
+//-(void)removeObjectFromAccountArrayAtIndex:(NSUInteger)index {
+//    [AccountArray removeObjectAtIndex:index];
+//}
+//
+//-(void)setAccountArray:(NSMutableArray *)a {
+//    AccountArray = a;
+//}
+//
+//-(NSArray*)accountArray {
+//    return AccountArray;
+//}
 
 
 #pragma mark - Updating the ACCOUNT array
 
 /* account beacons */
 
--(void)insertObject:(BTDeviceModel *)p inAccountBeaconsAtIndex:(NSUInteger)index {
-    [AccountBeacons insertObject:p atIndex:index];
-}
+//-(void)insertObject:(BTDeviceModel *)p inAccountBeaconsAtIndex:(NSUInteger)index {
+//    [AccountBeacons insertObject:p atIndex:index];
+//}
+//
+//-(void)removeObjectFromAccountBeaconsAtIndex:(NSUInteger)index {
+//    [AccountBeacons removeObjectAtIndex:index];
+//}
 
--(void)removeObjectFromAccountBeaconsAtIndex:(NSUInteger)index {
-    [AccountBeacons removeObjectAtIndex:index];
-}
-
--(void)setAccountBeacons:(NSMutableArray *)a {
-    AccountBeacons = a;
-}
-
--(NSArray*)accountBeacons {
-    return AccountBeacons;
-}
+//-(void)setAccountBeacons:(NSMutableArray *)a {
+//    AccountBeacons = a;
+//}
+//
+//-(NSArray*)accountBeacons {
+//    return AccountBeacons;
+//}
 
 
 #pragma mark - Updating the startup application
@@ -623,24 +623,7 @@ bool isWorking = FALSE;
 //    NSMutableArray * tempArray = [NSMutableArray array];
 //    [self setItemArray:tempArray];
     
-    AccountModel * ac1 = [[AccountModel alloc] init];
-    ac1.name = @"default";
-    ac1.type = @"cloud";
-    ac1.url = @"";
-    ac1.username = @"";
-    ac1.password = @"";
-
-    AccountModel * ac2 = [[AccountModel alloc] init];
-    ac2.name = @"custom";
-    ac2.type = @"cloud";
-    ac2.url = @"";
-    ac2.username = @"";
-    ac2.password = @"";
-    
-    NSMutableArray * tempAccountArray = [NSMutableArray arrayWithObjects:ac1,ac2,nil];
-    [self setAccountArray:tempAccountArray];
-    
-
+    [self.dataSource setupAccountArray];
     [statusbox setStringValue:@"awoke"];
     
 }
@@ -723,7 +706,7 @@ bool isScanning = FALSE;
 
 
 - (BTDeviceModel *) findItemInAccountBeaconArray:(NSString *)BEACONID{
-    for (BTDeviceModel * btitem in AccountBeacons) {
+    for (BTDeviceModel * btitem in self.dataSource.accountBeacons) {
         if ([BEACONID isEqualToString:btitem.ID ]) {
             return btitem;
         }
@@ -733,7 +716,7 @@ bool isScanning = FALSE;
 
 - (void) findItemInAccountArray:(BTDeviceModel *)BEACON{
     //NSLog(@"BEACON U:%@ MA:%@ MI:%@ NA:%@",BEACON.ib_uuid, BEACON.ib_major, BEACON.ib_minor, BEACON.name);
-    for (BTDeviceModel * btitem in AccountBeacons) {
+    for (BTDeviceModel * btitem in self.dataSource.accountBeacons) {
         //NSLog(@"BTITEM U:%@ MA:%@ MI:%@ NA:%@",btitem.ib_uuid, btitem.ib_major, btitem.ib_minor, btitem.name);
         if ([BEACON.ib_uuid isEqualToString:btitem.ib_uuid ] &&
             [BEACON.ib_major isEqualToString:btitem.ib_major ] &&
@@ -757,9 +740,7 @@ bool isScanning = FALSE;
     
     NSArray * dataa = json[@"data"][@"items"];
     
-    NSMutableArray * tempArray = [NSMutableArray array];
-    
-    [self setAccountBeacons:tempArray];
+    [self.dataSource clearAccountBeacons];
     
     for (NSMutableDictionary * item in dataa) {
         BTDeviceModel * pm = [[BTDeviceModel alloc] init];
@@ -769,10 +750,10 @@ bool isScanning = FALSE;
         pm.ib_major = item[@"ib_major"];
         pm.ib_minor = item[@"ib_minor"];
         pm.ID = item[@"id"];
-        [self insertObject:pm inAccountBeaconsAtIndex:0];
+        [self.dataSource.accountBeacons insertObject:pm atIndex:0];
 //        [AccountBeacons addObject:pm];
     }
-    NSLog(@"%@",AccountBeacons);
+    NSLog(@"%@",self.dataSource.accountBeacons);
 
 }
 

@@ -9,7 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <IOBluetooth/IOBluetooth.h>
 #import "BTDeviceModel.h"
-#import "AccountModel.h"
 
 #import "GBTableDataSource.h"
 
@@ -49,8 +48,8 @@ struct myuuid{
 
 @property  (nonatomic, strong) NSMutableArray *cvitems;
 // @property  (nonatomic, strong) NSMutableArray *ItemArray;
-@property  (nonatomic, strong) NSMutableArray *AccountArray;
-@property  (nonatomic, strong) NSMutableArray *AccountBeacons;
+//@property  (nonatomic, strong) NSMutableArray *AccountArray;
+//@property  (nonatomic, strong) NSMutableArray *AccountBeacons;
 @property (weak) IBOutlet NSLevelIndicator *p_batterylevel;
 @property (weak) IBOutlet NSTextField *p_batterlevel_txt;
 @property (weak) IBOutlet NSTextField *p_firmware;

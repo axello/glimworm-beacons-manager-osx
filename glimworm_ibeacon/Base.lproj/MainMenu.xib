@@ -753,9 +753,6 @@
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
-                            <connections>
-                                <action selector="buttonbot:" target="494" id="eYN-fo-oTw"/>
-                            </connections>
                         </button>
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="BPV-NR-2Pj"/>
@@ -880,7 +877,7 @@
                 <string>type</string>
             </declaredKeys>
             <connections>
-                <binding destination="494" name="contentArray" keyPath="AccountArray" id="QmL-gg-LB8"/>
+                <binding destination="0Q2-Cr-wpF" name="contentArray" keyPath="accountArray" id="qsz-3b-FGQ"/>
             </connections>
         </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="yF6-Q3-0Pk"/>
@@ -1514,11 +1511,11 @@
                         <tabViewItems>
                             <tabViewItem label="server" identifier="1" id="7tr-Md-wbB">
                                 <view key="view" ambiguous="YES" id="nn5-ut-yHA">
-                                    <rect key="frame" x="10" y="33" width="137" height="0.0"/>
+                                    <rect key="frame" x="10" y="33" width="537" height="278"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJb-Ac-fv0">
-                                            <rect key="frame" x="258" y="-46" width="245" height="26"/>
+                                            <rect key="frame" x="258" y="232" width="245" height="26"/>
                                             <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="evR-BG-3AT">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1530,23 +1527,23 @@
                                             </comboBoxCell>
                                         </comboBox>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PjY-4z-lEl">
-                                            <rect key="frame" x="160" y="-39" width="84" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Cloud Server" id="hfq-gs-Ng2">
+                                            <rect key="frame" x="166" y="239" width="84" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Cloud Server" id="hfq-gs-Ng2">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Aa-4j-w2Q">
-                                            <rect key="frame" x="160" y="-80" width="90" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="URL" id="7ik-Tm-PuL">
+                                            <rect key="frame" x="160" y="198" width="90" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="URL" id="7ik-Tm-PuL">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uTZ-wP-QQd">
-                                            <rect key="frame" x="258" y="-80" width="242" height="22"/>
+                                            <rect key="frame" x="258" y="198" width="242" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="HO9-Au-19s">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1554,15 +1551,15 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hjU-4V-4Nb">
-                                            <rect key="frame" x="160" y="-112" width="67" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Username" id="fcT-ar-JwB">
+                                            <rect key="frame" x="183" y="166" width="67" height="17"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Username" id="fcT-ar-JwB">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Tv-mR-qy1">
-                                            <rect key="frame" x="258" y="-114" width="242" height="22"/>
+                                            <rect key="frame" x="258" y="164" width="242" height="22"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Xtg-zt-JSg">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1570,15 +1567,15 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ix-s9-zLJ">
-                                            <rect key="frame" x="160" y="-150" width="64" height="17"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Password" id="Ep7-Th-M6a">
+                                            <rect key="frame" x="174" y="125" width="76" height="20"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Password" id="Ep7-Th-M6a">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uc7-ny-bd3">
-                                            <rect key="frame" x="258" y="-153" width="242" height="22"/>
+                                            <rect key="frame" x="258" y="125" width="242" height="22"/>
                                             <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="L0x-V9-HHs">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1589,7 +1586,7 @@
                                             </secureTextFieldCell>
                                         </secureTextField>
                                         <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnH-GU-Wyk">
-                                            <rect key="frame" x="6" y="-281" width="143" height="278"/>
+                                            <rect key="frame" x="6" y="-3" width="143" height="278"/>
                                             <clipView key="contentView" ambiguous="YES" id="DJt-JJ-aat">
                                                 <rect key="frame" x="1" y="1" width="141" height="276"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1720,7 +1717,7 @@
                 <string>name</string>
             </declaredKeys>
             <connections>
-                <binding destination="494" name="contentArray" keyPath="AccountBeacons" id="Mrc-B9-P53"/>
+                <binding destination="0Q2-Cr-wpF" name="contentArray" keyPath="accountBeacons" id="Ko8-lp-f6c"/>
             </connections>
         </arrayController>
         <collectionViewItem title="acc beacon item" id="D1f-Sa-O6Q">
