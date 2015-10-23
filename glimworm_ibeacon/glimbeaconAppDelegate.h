@@ -42,7 +42,7 @@ struct myuuid{
 @property (weak) IBOutlet NSTextField *ibminor;
 
 
-@property (nonatomic, strong) CBCentralManager *manager;
+//@property (nonatomic, strong) CBCentralManager *manager;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
 @property (weak) IBOutlet NSLevelIndicator *p_batterylevel;

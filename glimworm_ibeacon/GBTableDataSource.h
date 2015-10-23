@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BTDeviceModel.h"
 
 @interface GBTableDataSource : NSObject
 
@@ -19,5 +20,8 @@
 -(void) clearAccountBeacons;
 
 -(void) setupAccountArray;
+
+- (BTDeviceModel *) findItemInAccountBeaconArray:(NSString *)beaconId;
+- (void) findItemInAccountArray:(BTDeviceModel *)beacon;
 
 @end

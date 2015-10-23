@@ -22,10 +22,5 @@
 @synthesize found;
 @synthesize ID;
 
--(void) dealloc {
-//    [name release];
-//    [occupation release];
-//    [super dealloc];
-}
 
 @end
