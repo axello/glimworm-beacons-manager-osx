@@ -604,18 +604,18 @@ bool isWorking = FALSE;
 
 -(void)awakeFromNib {
     
-    BTDeviceModel * pm = [[BTDeviceModel alloc] init];
-    pm.name = @"Na";
-    pm.UUID = @"UU";
-    pm.RSSI = 0;
-    
-    BTDeviceModel * pm1 = [[BTDeviceModel alloc] init];
-    pm1.name = @"Na1";
-    pm1.UUID = @"UU1";
-    pm1.RSSI = 0;
-    //NSMutableArray * tempArray = [NSMutableArray arrayWithObjects:pm, pm1, nil];
+//    BTDeviceModel * pm = [[BTDeviceModel alloc] init];
+//    pm.name = @"Na";
+//    pm.UUID = @"UU";
+//    pm.RSSI = 0;
+//    
+//    BTDeviceModel * pm1 = [[BTDeviceModel alloc] init];
+//    pm1.name = @"Na1";
+//    pm1.UUID = @"UU1";
+//    pm1.RSSI = 0;
+//    //NSMutableArray * tempArray = [NSMutableArray arrayWithObjects:pm, pm1, nil];
 
-    NSMutableArray * tempArray = [NSMutableArray arrayWithObjects:nil];
+    NSMutableArray * tempArray = [NSMutableArray array];
     [self setItemArray:tempArray];
     
     AccountModel * ac1 = [[AccountModel alloc] init];
@@ -752,7 +752,7 @@ bool isScanning = FALSE;
     
     NSArray * dataa = json[@"data"][@"items"];
     
-    NSMutableArray * tempArray = [NSMutableArray arrayWithObjects:nil];
+    NSMutableArray * tempArray = [NSMutableArray array];
     
     [self setAccountBeacons:tempArray];
     
