@@ -73,6 +73,37 @@
 }
 
 
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central
+{
+    [self.statusbox setStringValue:@"state update"];
+    
+    if (central.state == CBCentralManagerStatePoweredOn) {
+        [self.statusbox setStringValue:@"state update powered on"];
+        
+        //        [self startScan];
+        
+    }
+    // fixed crashing bug: This is optional but must be an empty string (@"") not nil.
+    else if (central.state == CBCentralManagerStatePoweredOff) {
+        [self.statusbox setStringValue:@"state update powered off"];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Bluetooth is currently powered off." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+        [alert runModal];
+    }
+    else if (central.state == CBCentralManagerStateUnauthorized) {
+        [self.statusbox setStringValue:@"state update powered unauthorized"];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"The app is not authorized to use Bluetooth Low Energy." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+        [alert runModal];
+    }
+    else if (central.state == CBCentralManagerStateUnsupported) {
+        [self.statusbox setStringValue:@"state update powered unsupported"];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"The platform/hardware doesn't support Bluetooth Low Energy." defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+        [alert runModal];
+    }
+    
+    
+    
+}
+
 #pragma mark - Peripheral Discovery
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
@@ -93,8 +124,7 @@
     
     @try {
         
-        
-//        [statusbox setStringValue:value];
+        [self.statusbox setStringValue:value];
         
         if (_uuid == NULL) _uuid = @"";
         if (_name == NULL) _name = @"";
@@ -213,7 +243,6 @@
         [self.dataSource.itemArray insertObject:pm atIndex:0];
         [self.dataSource didChangeValueForKey:@"itemArray"];
         [self.dataSource findItemInAccountArray:pm];
-        
         
     }
     @catch (NSException * e) {

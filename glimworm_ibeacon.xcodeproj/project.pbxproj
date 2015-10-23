@@ -26,6 +26,8 @@
 		49DC150918F34DEB008B200A /* glimworm-beacons.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DC150818F34DEB008B200A /* glimworm-beacons.png */; };
 		49DC150B18F353B9008B200A /* icon_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DC150A18F353B9008B200A /* icon_128.png */; };
 		771D6B111BDA7BFE004880CF /* GBBTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D6B101BDA7BFE004880CF /* GBBTManager.m */; };
+		771D6B141BDA826E004880CF /* GBPeripheralDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D6B131BDA826E004880CF /* GBPeripheralDelegate.m */; };
+		771D6B171BDA86C5004880CF /* GBPeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771D6B161BDA86C5004880CF /* GBPeripheralViewController.m */; };
 		774BE2A91BDA639E0008FF66 /* GBTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 774BE2A81BDA639E0008FF66 /* GBTableDataSource.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,10 @@
 		49DC150A18F353B9008B200A /* icon_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_128.png; sourceTree = "<group>"; };
 		771D6B0F1BDA7BFE004880CF /* GBBTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBBTManager.h; sourceTree = "<group>"; };
 		771D6B101BDA7BFE004880CF /* GBBTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBBTManager.m; sourceTree = "<group>"; };
+		771D6B121BDA826E004880CF /* GBPeripheralDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBPeripheralDelegate.h; sourceTree = "<group>"; };
+		771D6B131BDA826E004880CF /* GBPeripheralDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBPeripheralDelegate.m; sourceTree = "<group>"; };
+		771D6B151BDA86C5004880CF /* GBPeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBPeripheralViewController.h; sourceTree = "<group>"; };
+		771D6B161BDA86C5004880CF /* GBPeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBPeripheralViewController.m; sourceTree = "<group>"; };
 		774BE2A71BDA639E0008FF66 /* GBTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTableDataSource.h; sourceTree = "<group>"; };
 		774BE2A81BDA639E0008FF66 /* GBTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTableDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +155,10 @@
 			children = (
 				492F09481866C3C1005EBBAC /* glimbeaconAppDelegate.h */,
 				492F09491866C3C1005EBBAC /* glimbeaconAppDelegate.m */,
+				771D6B151BDA86C5004880CF /* GBPeripheralViewController.h */,
+				771D6B161BDA86C5004880CF /* GBPeripheralViewController.m */,
+				771D6B121BDA826E004880CF /* GBPeripheralDelegate.h */,
+				771D6B131BDA826E004880CF /* GBPeripheralDelegate.m */,
 				771D6B0F1BDA7BFE004880CF /* GBBTManager.h */,
 				771D6B101BDA7BFE004880CF /* GBBTManager.m */,
 				774BE2A71BDA639E0008FF66 /* GBTableDataSource.h */,
@@ -301,9 +311,11 @@
 				492F09731866E99D005EBBAC /* BTDeviceModel.m in Sources */,
 				49593A55186B55CA00B55534 /* AccountModel.m in Sources */,
 				771D6B111BDA7BFE004880CF /* GBBTManager.m in Sources */,
+				771D6B171BDA86C5004880CF /* GBPeripheralViewController.m in Sources */,
 				774BE2A91BDA639E0008FF66 /* GBTableDataSource.m in Sources */,
 				492F09431866C3C1005EBBAC /* main.m in Sources */,
 				492F094A1866C3C1005EBBAC /* glimbeaconAppDelegate.m in Sources */,
+				771D6B141BDA826E004880CF /* GBPeripheralDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) CBCentralManager *manager;
 @property (nonatomic, weak) GBTableDataSource *dataSource;
+@property (nonatomic, weak) NSTextField *statusbox;     // for logging only
 
 - (instancetype)initWithDataSource:(GBTableDataSource *)ds;
 
