@@ -17,7 +17,7 @@
 @implementation glimbeaconAppDelegate
 @synthesize statusbox;
 @synthesize manager;
-@synthesize cvitems;
+//@synthesize cvitems;
 // @synthesize ItemArray;
 //@synthesize AccountArray;
 @synthesize panel;
@@ -70,7 +70,6 @@
     // Insert code here to initialize your application
     manager = [[CBCentralManager alloc] initWithDelegate:self
                                                        queue:nil];
-//    self.dataSource = [[GBTableDataSource alloc] init];   now from xib
     
 }
 -(void) applicationDidResignActive:(NSNotification *)notification {
@@ -527,84 +526,6 @@ bool isWorking = FALSE;
     
 }
 
-
-#pragma mark - Updating the CVITEMS array
-
--(void)insertObject:(BTDeviceModel *)p incvitemsAtIndex:(NSUInteger)index {
-    [cvitems insertObject:p atIndex:index];
-}
-
--(void)removeObjectFromcvitemsAtIndex:(NSUInteger)index {
-    [cvitems removeObjectAtIndex:index];
-}
-
--(void)setcvitems:(NSMutableArray *)a {
-    cvitems = a;
-}
-
--(NSArray*)cvitems {
-    return cvitems;
-}
-
-#pragma mark - Updating the ITEMS array
-//
-//-(void)insertObject:(BTDeviceModel *)p inItemArrayAtIndex:(NSUInteger)index {
-//    [ItemArray insertObject:p atIndex:index];
-//}
-//
-//-(void)removeObjectFromItemArrayAtIndex:(NSUInteger)index {
-//    [ItemArray removeObjectAtIndex:index];
-//}
-
-//-(void)setItemArray:(NSMutableArray *)a {
-//    ItemArray = a;
-//}
-
-//-(NSArray*)itemArray {
-//    return ItemArray;
-//}
-
-#pragma mark - Updating the BEACON array
-/* account array */
-
-//-(void)insertObject:(AccountModel *)p inAccountArrayAtIndex:(NSUInteger)index {
-//    [AccountArray insertObject:p atIndex:index];
-//}
-
-//-(void)removeObjectFromAccountArrayAtIndex:(NSUInteger)index {
-//    [AccountArray removeObjectAtIndex:index];
-//}
-//
-//-(void)setAccountArray:(NSMutableArray *)a {
-//    AccountArray = a;
-//}
-//
-//-(NSArray*)accountArray {
-//    return AccountArray;
-//}
-
-
-#pragma mark - Updating the ACCOUNT array
-
-/* account beacons */
-
-//-(void)insertObject:(BTDeviceModel *)p inAccountBeaconsAtIndex:(NSUInteger)index {
-//    [AccountBeacons insertObject:p atIndex:index];
-//}
-//
-//-(void)removeObjectFromAccountBeaconsAtIndex:(NSUInteger)index {
-//    [AccountBeacons removeObjectAtIndex:index];
-//}
-
-//-(void)setAccountBeacons:(NSMutableArray *)a {
-//    AccountBeacons = a;
-//}
-//
-//-(NSArray*)accountBeacons {
-//    return AccountBeacons;
-//}
-
-
 #pragma mark - Updating the startup application
 
 -(void)awakeFromNib {
@@ -634,14 +555,9 @@ bool isWorking = FALSE;
 
     if (central.state == CBCentralManagerStatePoweredOn) {
         [statusbox setStringValue:@"state update powered on"];
-
-        
-        
         
 //        [self startScan];
         
-//        [self.deviceTextField setStringValue:@"..."];
-//        [self.orientationTextField setStringValue:@""];
     }
     // fixed crashing bug: This is optional but must be an empty string (@"") not nil.
     else if (central.state == CBCentralManagerStatePoweredOff) {
@@ -689,12 +605,6 @@ bool isScanning = FALSE;
         [scanningbar_spinner stopAnimation:self];
     }
 }
-//- (IBAction)buttonbot:(id)sender {
-//    [self startWithScanning];
-//}
-//- (IBAction)buttonstop:(id)sender {
-//    [self stopWithScanning];
-//}
 
 - (IBAction)tb_scan_for_beacons:(id)sender {
     if (isScanning == FALSE) {

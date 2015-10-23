@@ -36,7 +36,6 @@ struct myuuid{
 @property (unsafe_unretained) IBOutlet NSPanel *writingpanel;
 @property (weak) IBOutlet NSView *v_details;
 
-//- (IBAction)buttonbot:(id)sender;
 @property (weak) IBOutlet NSTextField *statusbox;
 @property (weak) IBOutlet NSTextField *ibuuid;
 @property (weak) IBOutlet NSTextField *ibmajor;
@@ -46,10 +45,6 @@ struct myuuid{
 @property (nonatomic, strong) CBCentralManager *manager;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
-@property  (nonatomic, strong) NSMutableArray *cvitems;
-// @property  (nonatomic, strong) NSMutableArray *ItemArray;
-//@property  (nonatomic, strong) NSMutableArray *AccountArray;
-//@property  (nonatomic, strong) NSMutableArray *AccountBeacons;
 @property (weak) IBOutlet NSLevelIndicator *p_batterylevel;
 @property (weak) IBOutlet NSTextField *p_batterlevel_txt;
 @property (weak) IBOutlet NSTextField *p_firmware;
@@ -82,7 +77,6 @@ struct myuuid{
 @property (weak) IBOutlet NSButton *p_adv_6000;
 @property (weak) IBOutlet NSButton *p_adv_7000;
 
-//- (IBAction)buttonstop:(id)sender;
 - (IBAction)button_connect:(id)sender;
 - (IBAction)button_favourite:(id)sender;
 - (IBAction)p_close:(id)sender;
