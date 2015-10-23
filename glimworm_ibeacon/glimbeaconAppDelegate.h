@@ -11,6 +11,8 @@
 #import "BTDeviceModel.h"
 #import "AccountModel.h"
 
+#import "GBTableDataSource.h"
+
 struct myuuid{
     int b1;
     int b2;
@@ -23,6 +25,8 @@ struct myuuid{
 
 @interface glimbeaconAppDelegate : NSObject <NSApplicationDelegate, CBCentralManagerDelegate, CBPeripheralDelegate>
 
+@property (nonatomic, strong) IBOutlet GBTableDataSource *dataSource;
+
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSToolbar *toolbar;
@@ -33,7 +37,7 @@ struct myuuid{
 @property (unsafe_unretained) IBOutlet NSPanel *writingpanel;
 @property (weak) IBOutlet NSView *v_details;
 
-- (IBAction)buttonbot:(id)sender;
+//- (IBAction)buttonbot:(id)sender;
 @property (weak) IBOutlet NSTextField *statusbox;
 @property (weak) IBOutlet NSTextField *ibuuid;
 @property (weak) IBOutlet NSTextField *ibmajor;
@@ -44,7 +48,7 @@ struct myuuid{
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
 @property  (nonatomic, strong) NSMutableArray *cvitems;
-@property  (nonatomic, strong) NSMutableArray *ItemArray;
+// @property  (nonatomic, strong) NSMutableArray *ItemArray;
 @property  (nonatomic, strong) NSMutableArray *AccountArray;
 @property  (nonatomic, strong) NSMutableArray *AccountBeacons;
 @property (weak) IBOutlet NSLevelIndicator *p_batterylevel;
@@ -79,7 +83,7 @@ struct myuuid{
 @property (weak) IBOutlet NSButton *p_adv_6000;
 @property (weak) IBOutlet NSButton *p_adv_7000;
 
-- (IBAction)buttonstop:(id)sender;
+//- (IBAction)buttonstop:(id)sender;
 - (IBAction)button_connect:(id)sender;
 - (IBAction)button_favourite:(id)sender;
 - (IBAction)p_close:(id)sender;
@@ -115,7 +119,7 @@ struct myuuid{
 @property (weak) IBOutlet NSProgressIndicator *scanningbar_spinner;
 
 
-@property (weak) IBOutlet NSScrollView *main_scrollview;
+//@property (weak) IBOutlet NSScrollView *main_scrollview;
 
 
 

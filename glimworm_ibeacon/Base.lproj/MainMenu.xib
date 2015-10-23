@@ -816,11 +816,10 @@
         </window>
         <customObject id="494" customClass="glimbeaconAppDelegate">
             <connections>
-                <outlet property="buttonbot" destination="qI5-3Q-RUr" id="Q9I-t0-vwX"/>
+                <outlet property="dataSource" destination="0Q2-Cr-wpF" id="a7u-pT-vs4"/>
                 <outlet property="ibmajor" destination="dhq-ij-Kvv" id="QxP-qp-9IT"/>
                 <outlet property="ibminor" destination="iMh-e4-vm3" id="dJC-WD-9x3"/>
                 <outlet property="ibuuid" destination="0Ts-Bp-tsK" id="ZrG-Wx-7t2"/>
-                <outlet property="main_scrollview" destination="8K6-7M-JG9" id="si1-UI-A8N"/>
                 <outlet property="p100m" destination="SrJ-aA-aKf" id="weF-Ua-DjB"/>
                 <outlet property="p50m" destination="Ov4-Pp-qZ3" id="sya-Mb-w11"/>
                 <outlet property="p5m" destination="T7x-fs-TSE" id="9rY-la-SaI"/>
@@ -864,23 +863,24 @@
                 <outlet property="writingpanel" destination="rVi-Pa-O3i" id="MTQ-iT-EwD"/>
             </connections>
         </customObject>
+        <customObject id="0Q2-Cr-wpF" customClass="GBTableDataSource"/>
         <customObject id="420" customClass="NSFontManager"/>
-        <arrayController objectClassName="BTDeviceModel" id="1xr-by-Cad">
+        <arrayController objectClassName="BTDeviceModel" id="1xr-by-Cad" userLabel="itemArray Controller">
             <declaredKeys>
                 <string>name</string>
                 <string>UUID</string>
             </declaredKeys>
             <connections>
-                <binding destination="494" name="contentArray" keyPath="ItemArray" id="96x-fW-2Dc"/>
+                <binding destination="0Q2-Cr-wpF" name="contentArray" keyPath="itemArray" id="Jtt-ht-s5J"/>
             </connections>
         </arrayController>
-        <arrayController objectClassName="AccountModel" id="ewa-ng-iuk">
+        <arrayController objectClassName="AccountModel" id="ewa-ng-iuk" userLabel="accountArray Controller">
             <declaredKeys>
                 <string>name</string>
                 <string>type</string>
             </declaredKeys>
             <connections>
-                <binding destination="494" name="contentArray" keyPath="AccountArray" id="fBO-dh-694"/>
+                <binding destination="494" name="contentArray" keyPath="AccountArray" id="QmL-gg-LB8"/>
             </connections>
         </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="yF6-Q3-0Pk"/>
@@ -1514,7 +1514,7 @@
                         <tabViewItems>
                             <tabViewItem label="server" identifier="1" id="7tr-Md-wbB">
                                 <view key="view" ambiguous="YES" id="nn5-ut-yHA">
-                                    <rect key="frame" x="10" y="33" width="136" height="0.0"/>
+                                    <rect key="frame" x="10" y="33" width="137" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJb-Ac-fv0">

@@ -23,10 +23,10 @@
 		492F09731866E99D005EBBAC /* BTDeviceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 492F09721866E99D005EBBAC /* BTDeviceModel.m */; };
 		492F09771867A1CF005EBBAC /* beacon_icon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 492F09761867A1CF005EBBAC /* beacon_icon_80x80.png */; };
 		49593A55186B55CA00B55534 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49593A54186B55CA00B55534 /* AccountModel.m */; };
-		4999F4D218DFFD3800849CC0 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 4999F4D118DFFD3800849CC0 /* icons */; };
 		49DC150918F34DEB008B200A /* glimworm-beacons.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DC150818F34DEB008B200A /* glimworm-beacons.png */; };
 		49DC150B18F353B9008B200A /* icon_128.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DC150A18F353B9008B200A /* icon_128.png */; };
 		774BE2A61BDA60050008FF66 /* GBTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 774BE2A51BDA60050008FF66 /* GBTableVC.m */; };
+		774BE2A91BDA639E0008FF66 /* GBTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 774BE2A81BDA639E0008FF66 /* GBTableDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,11 +67,12 @@
 		492F09781867FD2E005EBBAC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		49593A53186B55CA00B55534 /* AccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountModel.h; path = glimworm_ibeacon/accounts/AccountModel.h; sourceTree = "<group>"; };
 		49593A54186B55CA00B55534 /* AccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountModel.m; path = glimworm_ibeacon/accounts/AccountModel.m; sourceTree = "<group>"; };
-		4999F4D118DFFD3800849CC0 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = icons; sourceTree = "<group>"; };
 		49DC150818F34DEB008B200A /* glimworm-beacons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "glimworm-beacons.png"; sourceTree = "<group>"; };
 		49DC150A18F353B9008B200A /* icon_128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_128.png; sourceTree = "<group>"; };
-		774BE2A41BDA60050008FF66 /* GBTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBTableVC.h; path = glimworm_ibeacon/accounts/GBTableVC.h; sourceTree = "<group>"; };
-		774BE2A51BDA60050008FF66 /* GBTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBTableVC.m; path = glimworm_ibeacon/accounts/GBTableVC.m; sourceTree = "<group>"; };
+		774BE2A41BDA60050008FF66 /* GBTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBTableVC.h; path = accounts/GBTableVC.h; sourceTree = "<group>"; };
+		774BE2A51BDA60050008FF66 /* GBTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBTableVC.m; path = accounts/GBTableVC.m; sourceTree = "<group>"; };
+		774BE2A71BDA639E0008FF66 /* GBTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTableDataSource.h; sourceTree = "<group>"; };
+		774BE2A81BDA639E0008FF66 /* GBTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTableDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +105,6 @@
 				49593A54186B55CA00B55534 /* AccountModel.m */,
 				492F09711866E99D005EBBAC /* BTDeviceModel.h */,
 				492F09721866E99D005EBBAC /* BTDeviceModel.m */,
-				774BE2A41BDA60050008FF66 /* GBTableVC.h */,
-				774BE2A51BDA60050008FF66 /* GBTableVC.m */,
 				492F093C1866C3C1005EBBAC /* glimworm_ibeacon */,
 				492F095A1866C3C1005EBBAC /* glimworm_ibeaconTests */,
 				492F09351866C3C1005EBBAC /* Frameworks */,
@@ -148,9 +147,12 @@
 		492F093C1866C3C1005EBBAC /* glimworm_ibeacon */ = {
 			isa = PBXGroup;
 			children = (
-				4999F4D118DFFD3800849CC0 /* icons */,
+				774BE2A41BDA60050008FF66 /* GBTableVC.h */,
+				774BE2A51BDA60050008FF66 /* GBTableVC.m */,
 				492F09481866C3C1005EBBAC /* glimbeaconAppDelegate.h */,
 				492F09491866C3C1005EBBAC /* glimbeaconAppDelegate.m */,
+				774BE2A71BDA639E0008FF66 /* GBTableDataSource.h */,
+				774BE2A81BDA639E0008FF66 /* GBTableDataSource.m */,
 				492F094B1866C3C1005EBBAC /* MainMenu.xib */,
 				492F094E1866C3C1005EBBAC /* Images.xcassets */,
 				492F093D1866C3C1005EBBAC /* Supporting Files */,
@@ -235,9 +237,9 @@
 		492F092B1866C3C1005EBBAC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = glimbeacon;
-				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Jonathan Carter";
+				CLASSPREFIX = GB;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Glimworm Beacons";
 				TargetAttributes = {
 					492F09321866C3C1005EBBAC = {
 						DevelopmentTeam = 7E59G64TU5;
@@ -276,7 +278,6 @@
 				49DC150B18F353B9008B200A /* icon_128.png in Resources */,
 				492F094F1866C3C1005EBBAC /* Images.xcassets in Resources */,
 				492F09471866C3C1005EBBAC /* Credits.rtf in Resources */,
-				4999F4D218DFFD3800849CC0 /* icons in Resources */,
 				492F09771867A1CF005EBBAC /* beacon_icon_80x80.png in Resources */,
 				492F094D1866C3C1005EBBAC /* MainMenu.xib in Resources */,
 			);
@@ -299,6 +300,7 @@
 			files = (
 				492F09731866E99D005EBBAC /* BTDeviceModel.m in Sources */,
 				49593A55186B55CA00B55534 /* AccountModel.m in Sources */,
+				774BE2A91BDA639E0008FF66 /* GBTableDataSource.m in Sources */,
 				492F09431866C3C1005EBBAC /* main.m in Sources */,
 				492F094A1866C3C1005EBBAC /* glimbeaconAppDelegate.m in Sources */,
 				774BE2A61BDA60050008FF66 /* GBTableVC.m in Sources */,
@@ -375,6 +377,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -437,6 +440,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "glimworm_ibeacon/glimworm_ibeacon-Prefix.pch";
 				INFOPLIST_FILE = "glimworm_ibeacon/glimworm_ibeacon-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glimworm.osx.ibeacon.01.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -453,6 +457,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "glimworm_ibeacon/glimworm_ibeacon-Prefix.pch";
 				INFOPLIST_FILE = "glimworm_ibeacon/glimworm_ibeacon-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glimworm.osx.ibeacon.01.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -475,6 +480,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "glimworm_ibeaconTests/glimworm_ibeaconTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glimworm.osx.ibeacon.01.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -493,6 +499,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "glimworm_ibeacon/glimworm_ibeacon-Prefix.pch";
 				INFOPLIST_FILE = "glimworm_ibeaconTests/glimworm_ibeaconTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.glimworm.osx.ibeacon.01.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

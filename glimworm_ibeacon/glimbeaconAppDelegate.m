@@ -10,11 +10,15 @@
 #import <IOBluetooth/IOBluetooth.h>
 
 
+@interface glimbeaconAppDelegate ()
+
+@end
+
 @implementation glimbeaconAppDelegate
 @synthesize statusbox;
 @synthesize manager;
 @synthesize cvitems;
-@synthesize ItemArray;
+// @synthesize ItemArray;
 @synthesize AccountArray;
 @synthesize panel;
 @synthesize p_name;
@@ -53,7 +57,7 @@
 @synthesize p_adv_7000;
 @synthesize p_adv_760;
 @synthesize p_adv_852;
-@synthesize main_scrollview;
+//@synthesize main_scrollview;
 @synthesize tb_scan_for_beacons;
 @synthesize scanningbar;
 @synthesize scanningbar_spinner;
@@ -66,6 +70,7 @@
     // Insert code here to initialize your application
     manager = [[CBCentralManager alloc] initWithDelegate:self
                                                        queue:nil];
+//    self.dataSource = [[GBTableDataSource alloc] init];   now from xib
     
 }
 -(void) applicationDidResignActive:(NSNotification *)notification {
@@ -386,16 +391,18 @@ bool isWorking = FALSE;
     //NSLog(@"CFSTRINGREF u %@",u);   // this is just the UUID
     //NSLog(@"CFSTRINGREF U %@",_uuid);
     
-    @try {
+    NSMutableArray *myItems = self.dataSource.itemArray;
     
+    @try {
+        
     
         [statusbox setStringValue:value];
         
         if (_uuid == NULL) _uuid = @"";
         if (_name == NULL) _name = @"";
 
-        for (int i=0; i < [ItemArray count]; i++) {
-            BTDeviceModel *m = [ItemArray objectAtIndex:i];
+        for (int i=0; i < [myItems count]; i++) {
+            BTDeviceModel *m = [myItems objectAtIndex:i];
 
             //NSLog(@"CFSTRINGREF MNAME %@",m.name);
             //NSLog(@"CFSTRINGREF UUID %@",m.UUID);
@@ -495,7 +502,7 @@ bool isWorking = FALSE;
 
                 NSLog(@"AdvDataArray: IBUUID : %@ ",ib_uuid);
                 NSLog(@"AdvDataArray: IBMAJOR : %@ ",ib_major);
-                NSLog(@"AdvDataArray: IBINOR : %@ ",ib_minor);
+                NSLog(@"AdvDataArray: IBMINOR : %@ ",ib_minor);
                 pm.ib_uuid = ib_uuid;
                 pm.ib_major = [self hex2dec:ib_major];
                 pm.ib_minor = [self hex2dec:ib_minor];
@@ -504,7 +511,9 @@ bool isWorking = FALSE;
             }
         }
         
-        [self insertObject:pm inItemArrayAtIndex:0];
+        [self.dataSource willChangeValueForKey:@"itemArray"];
+        [self.dataSource.itemArray insertObject:pm atIndex:0];
+        [self.dataSource didChangeValueForKey:@"itemArray"];
         [self findItemInAccountArray:pm];
         
         
@@ -538,28 +547,24 @@ bool isWorking = FALSE;
 }
 
 #pragma mark - Updating the ITEMS array
+//
+//-(void)insertObject:(BTDeviceModel *)p inItemArrayAtIndex:(NSUInteger)index {
+//    [ItemArray insertObject:p atIndex:index];
+//}
+//
+//-(void)removeObjectFromItemArrayAtIndex:(NSUInteger)index {
+//    [ItemArray removeObjectAtIndex:index];
+//}
 
--(void)insertObject:(BTDeviceModel *)p inItemArrayAtIndex:(NSUInteger)index {
-    [ItemArray insertObject:p atIndex:index];
-}
+//-(void)setItemArray:(NSMutableArray *)a {
+//    ItemArray = a;
+//}
 
--(void)removeObjectFromItemArrayAtIndex:(NSUInteger)index {
-    [ItemArray removeObjectAtIndex:index];
-}
-
--(void)setItemArray:(NSMutableArray *)a {
-    ItemArray = a;
-}
-
--(NSArray*)itemArray {
-    return ItemArray;
-}
+//-(NSArray*)itemArray {
+//    return ItemArray;
+//}
 
 #pragma mark - Updating the BEACON array
-
--(void)clearBeaconArray {
-    [ItemArray removeAllObjects];
-}
 /* account array */
 
 -(void)insertObject:(AccountModel *)p inAccountArrayAtIndex:(NSUInteger)index {
@@ -615,8 +620,8 @@ bool isWorking = FALSE;
 //    pm1.RSSI = 0;
 //    //NSMutableArray * tempArray = [NSMutableArray arrayWithObjects:pm, pm1, nil];
 
-    NSMutableArray * tempArray = [NSMutableArray array];
-    [self setItemArray:tempArray];
+//    NSMutableArray * tempArray = [NSMutableArray array];
+//    [self setItemArray:tempArray];
     
     AccountModel * ac1 = [[AccountModel alloc] init];
     ac1.name = @"default";
@@ -683,7 +688,7 @@ bool isScanning = FALSE;
 -(void) startWithScanning {
     if (isScanning == FALSE) {
         [statusbox setStringValue:@"test"];
-        [self clearBeaconArray];
+        [self.dataSource clearBeaconArray];
         [self startScan];
     //    NSString * ret = [self getDataFrom:@"http://jon651.glimworm.com/ibeacon/api.php?action=beacons&verb="];
     //    NSLog(ret);
@@ -1089,7 +1094,7 @@ bool isScanning = FALSE;
     NSString *_name = [[NSString alloc] initWithFormat:@"%@", [sender alternateTitle]];
 
     currentPeripheral = Nil;
-    for (BTDeviceModel* m in ItemArray) {
+    for (BTDeviceModel* m in self.dataSource.itemArray) {
         if ( [m.name isEqualTo: (_name)] || [m.name isEqualToString: (_name)]) {
             currentPeripheral = m;
         }
@@ -1157,7 +1162,7 @@ bool isScanning = FALSE;
     NSString *_name = [[NSString alloc] initWithFormat:@"%@", [sender alternateTitle]];
     
     currentPeripheral = Nil;
-    for (BTDeviceModel* m in ItemArray) {
+    for (BTDeviceModel* m in self.dataSource.itemArray) {
         if ( [m.name isEqualTo: (_name)] || [m.name isEqualToString: (_name)]) {
             currentPeripheral = m;
         }
